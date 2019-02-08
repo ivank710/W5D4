@@ -158,7 +158,11 @@ const bsearch = function(arr, target) {
   } else if(target < arr[middle]) {
     return bsearch(arr.slice(0, middle), target);
   } else {
-    result = bsearch(arr.slice(middle+1));
-    (result === -1) ? -1 : (result+middle+1);
+    result = bsearch(arr.slice(middle+1), target);
+    if (result===-1){
+      return -1
+    } else {
+      return result + middle + 1;
+    }
   }
 }
